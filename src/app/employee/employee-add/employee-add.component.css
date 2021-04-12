@@ -1,0 +1,96 @@
+.container{
+    border-radius: 5px;
+    background-color:lightseagreen;
+    padding: 90px 500px 300px 500px;
+    margin: 5px 0 22px 0;
+    border-right: blueviolet;
+    box-align: center;
+    box-sizing: inherit;
+    box-sizing: border-box;
+    display: block;
+    box-decoration-break:lawngreen;
+    text-align: justify;
+    color:black;
+    font-family: sans-serif;
+    font-size: 15px;
+    
+  }
+
+  input[type=text] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  p {
+    color:red;
+  }
+  .ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+
+  input[type=email] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  input[type=date] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+
+  input[type=phonenumber] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  .my-button {
+    display: inline-block;
+    margin-left: 45px; /* space between buttons */
+    background: #b06f97; /* background color */
+    color: #333; /* text color */
+    font-size: 10px;
+    font-family: ‘Georgia’, serif;
+    font-style: italic;
+    border-radius: 50px; /* rounded corners */
+    padding: 8px 16px; /* space around text */
+    -moz-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    width: 20%;
+    text-align:center;
+}
+.btn {
+  text-align:center;
+  display: inline-block;
+  margin-left: 190px; /* space between buttons */
+  background: #b06f97; /* background color */
+  color: #333; /* text color */
+  font-size: 10px;
+  font-family: ‘Georgia’, serif;
+  font-style: italic;
+  border-radius: 50px; /* rounded corners */
+  padding: 8px 16px; /* space around text */
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  width: 20%;
+}
+  
