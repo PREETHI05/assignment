@@ -4,7 +4,7 @@
   <h1>Add Employee Details</h1>
   <div class="form-group">
     <label>FirstName</label>
-    <input type = "text" name="firstname"  placeholder="First Name" id = "Firstname" class="form-control" formControlName="Firstname" required />
+    <input type = "text"  placeholder="First Name" id = "Firstname" class="form-control" formControlName="Firstname" required />
 
     <p *ngIf="formdata.get('Firstname').hasError('required') &&
     (formdata.get('Firstname').dirty)">
@@ -14,7 +14,7 @@
   <br>
   <div class="form-group" >
     <label>LastName</label>
-    <input type = "text" name="lastname"  placeholder="Last Name" class="form-control" formControlName="Lastname" />
+    <input type = "text"   placeholder="Last Name" class="form-control" formControlName="Lastname" />
   </div>
   <br>
   
@@ -37,9 +37,9 @@
 
   <div  class="form-group">
     <label>gender</label><br>
-    <input type="radio" id="male" name="gender" value="male" class="form-control" formControlName="Gender" />
+    <input type="radio" id="male"  value="male" class="form-control" formControlName="Gender" />
   <label for="male">Male</label><br>
-  <input type="radio" id="female" name="gender" value="female" class="form-control" formControlName="Gender" />
+  <input type="radio" id="female"  value="female" class="form-control" formControlName="Gender" />
   <label for="female">Female</label><br>
   </div>
 

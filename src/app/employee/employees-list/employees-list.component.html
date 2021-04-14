@@ -3,3 +3,29 @@
 <a routerLink = "/employee-add">ADD</a>
 <br />
 <br/>
+<h1>Employee List</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Gender</th>
+            <th>Designation</th>
+            <th>Email Id</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of items">
+            <td>{{employee.Firstname}}</td>
+            <td>{{employee.Lastname}}</td>
+            <td>{{employee.Gender}}</td>
+            <td>{{employee.Roles.Designation}}</td>
+            <td>{{employee.Email}}</td>
+            <td>{{employee.Phonenumber}}</td>
+        </tr>
+    </tbody>
+</table>
+
