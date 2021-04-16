@@ -3,11 +3,12 @@
 <a routerLink = "/employee-add">ADD</a>
 <br />
 <br/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <h1>Employee List</h1>
 <table class="table table-bordered">
     <thead>
         <tr>
-            
+            <th>ID</th>
             <th>FirstName</th>
             <th>LastName</th>
             <th>Gender</th>
@@ -19,12 +20,19 @@
     </thead>
     <tbody>
         <tr *ngFor="let employee of items">
+            <td>{{employee.Id}}</td>
             <td>{{employee.Firstname}}</td>
             <td>{{employee.Lastname}}</td>
             <td>{{employee.Gender}}</td>
-            <td>{{employee.Roles.Designation}}</td>
+            <td>{{employee.Designation}}</td>
             <td>{{employee.Email}}</td>
             <td>{{employee.Phonenumber}}</td>
+            <td>
+                <div>
+                    <button class= "button button2" (click) = "updateInfo(employee.Id)" title = "UPDATE"><i class="fa fa-edit"></i></button>
+                    <button class= "button button3" (click) = "deleteData(employee.Id)" title = "DELETE"><i class="fa fa-minus-circle"></i></button>
+                </div>
+            </td>
         </tr>
     </tbody>
 </table>

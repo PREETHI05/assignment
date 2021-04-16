@@ -1,5 +1,5 @@
 
-<form [formGroup] = "formdata" (ngSubmit) = "addinfo()">
+<form [formGroup] = "formdata" (ngSubmit) = "onsubmit()">
 <div class = "container">
   <h1>Add Employee Details</h1>
   <div class="form-group">
@@ -45,9 +45,9 @@
 
   <br>
 
-  <div  class="form-group" formGroupName="Roles">
+  <div  class="form-group" >
     <label for = "designation">Designation</label>
-    <select id="designation" name="designation" formControlName="Designation">
+    <select id="designation"  value="designation" class="form-control" formControlName="Designation">
       <option value="Manager" >Manager</option>
       <option value="HR" >HR</option>
       <option value="Team Leader" >Team Leader</option>

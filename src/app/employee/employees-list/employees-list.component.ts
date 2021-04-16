@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import * as firebase from 'firebase';
-
+import { EmployeeAddComponent } from '../employee-add/employee-add.component';
+import {ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-employees-list',
@@ -9,20 +10,40 @@ import * as firebase from 'firebase';
   styleUrls: ['./employees-list.component.css']
 })
 export class EmployeesListComponent implements OnInit {
-  items: Array<any>;
-  
-  constructor(private _firebaseServ: FirebaseService) { }
+  items: any;
+  idexes = [];
+  id: string;
+  constructor(private router: Router,
+    private route: ActivatedRoute,
+    private _firebaseServ: FirebaseService) { 
+     }
 
   ngOnInit() {
-    //console.log('00');
-    this._firebaseServ.getInfo().then(result => {
-      this.items = result;
-      //console.log('00');
-      //console.log(this.items);
+    this._firebaseServ.getInfo().snapshotChanges().subscribe(result => {
+      console.log(result)
+      if(result) {
+      this._firebaseServ.getInfo().valueChanges().subscribe(res => {
+        this.items = res;
+        for (let i= 0; i< this.items.length; i++) {
+          this.items[i]["Id"] = result[i].key;    
+        }
+       // console.log(this.items); 
+      })
+    } 
     })
-   
+    
+  }
+  
+  updateInfo(employeeId : string) {
+        this.router.navigate(['/employee-add'], { queryParams: {employeeId}});
   }
 
-
+  deleteData(employeeID : string) {
+    this._firebaseServ.deleteUser(employeeID)
+    .then(
+      res => {
+        this.router.navigate(['/employee-list']);
+      });
+  }
 
 }

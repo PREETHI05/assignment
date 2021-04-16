@@ -7,7 +7,9 @@ const appRoutes: Routes = [
  // { path: '', redirectTo: 'employees-list', pathMatch: 'full'},
   { path: '', redirectTo: 'employees-list', pathMatch: 'full' },
   { path: 'employees-list', component: EmployeesListComponent },  
-  { path: 'employee-add', component: EmployeeAddComponent }
+  { path: 'employee-add', component: EmployeeAddComponent },
+  { path: 'employees-list',component: EmployeeAddComponent },
+  {path: 'employee-add/:id', component: EmployeeAddComponent}
   //{ path: 'employee-add', redirectTo: 'employees-list', pathMatch: 'full' },
 ];
 

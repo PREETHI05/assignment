@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import * as firebase from 'firebase';
+import { ActivatedRoute, Router } from '@angular/router';
+
 //import firestore from 'firebase/firestore';
 @Component({
   selector: 'app-employee-add',
@@ -9,11 +11,40 @@ import * as firebase from 'firebase';
   styleUrls: ['./employee-add.component.css']
 })
 export class EmployeeAddComponent implements OnInit {
-
+ items : any;
   formdata: FormGroup;
+  emp: any;
+  EmployeeId: string;
  // emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  constructor(private _firebaseServ: FirebaseService) { }
+  constructor(private router: Router,
+      private route: ActivatedRoute, 
+    private _firebaseServ: FirebaseService) { 
+    
+   }
  ngOnInit() {
+  this.EmployeeId = this.route.snapshot.queryParamMap.get('employeeId');
+  //console.log(this.EmployeeId);
+  if(this.EmployeeId) {
+   const employeeKeyValues = {}; 
+     this._firebaseServ.employeeDetails(this.EmployeeId).snapshotChanges().subscribe(actions => {
+
+      actions.forEach(action => {
+        const value = action.payload.val();
+        const id = action.payload.key;
+        employeeKeyValues[id] = value;
+        //console.log(employeeKeyValues);
+        
+      });
+      this.editEmployee(employeeKeyValues);
+    });
+  }
+    //  .snapshotChanges().subscribe(employeeKeys => {
+    //   this._firebaseServ.employeeDetails(EmployeeId).valueChanges().subscribe(employeeValues => {
+    //     this.items = employeeValues;
+    //     for(l)
+    //     console.log({employeeKeys})
+    //     console.log({employeeValues})
+        // this.editEmployee(emp);
    this.formdata = new FormGroup({
      Firstname: new FormControl('', [
       Validators.required,
@@ -22,24 +53,38 @@ export class EmployeeAddComponent implements OnInit {
      Email: new FormControl('', [Validators.required, Validators.email]),
      Dateofbirth: new FormControl(''),
      Gender: new FormControl(''),
-     Roles : new FormGroup({
-     Designation: new FormControl('')
-    }),
+     Designation: new FormControl(''),
      Phonenumber: new FormControl('',  [
       Validators.required,
       Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")])
-
-
   });
  }
+
+   editEmployee(emp : any) {
+     //console.log(emp.Firstname);
+      this.formdata.patchValue({
+        Firstname: emp.Firstname,
+        Lastname: emp.Lastname,
+        Email: emp.Email,
+        Dateofbirth: emp.Dateofbirth,
+        Gender: emp.Gender,
+        Designation: emp.Designation,
+        Phonenumber: emp.Phonenumber
+
+      });
+   }
  onsubmit() {
+ if(this.EmployeeId) {
+   this._firebaseServ.updateInfo(this.EmployeeId, this.formdata.value).then(
+    res => {
+      this.router.navigate(['/employees-list']);
+    });
+  } else {
+    this._firebaseServ.addinfo(this.formdata.value).then(resp => {
+      console.log(resp);
+      
+      });
+     }
+  }
 
- }
-
- addinfo() {
-   
-   this._firebaseServ.addinfo(this.formdata.value).then(resp => {
-     console.log(resp);
-   });
- }
 }
