@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; 
 //import { RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -24,6 +25,7 @@ import { FirebaseService } from './services/firebase.service';
     ReactiveFormsModule,
     AppRoutingModule,
    //RouterModule,
+   FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireDatabaseModule

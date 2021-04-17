@@ -69,10 +69,13 @@
   <br><br>
 
   <div class = "my-button">
-    <button type = "submit" value = "submit" name="submit"  >Submit</button>
+    <button type = "submit" value = "submit" name="submit" [disabled] = !formdata.valid >Submit</button>
     </div>
-    <div class = "btn">
-    <button type = "button" value = "cancel" name="cancel"  >Cancel</button>
+    <div class = "btn1">
+    <button type = "button" value = "reset" name="reset" (click)="resetForm()" >Reset</button>
+  </div>
+  <div class = "btn2">
+    <button type = "button" value = "cancel" name="cancel" (click)="cancelForm()" >Cancel</button>
   </div>
 </div>
 </form>

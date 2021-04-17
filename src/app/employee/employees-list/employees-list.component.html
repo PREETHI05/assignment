@@ -5,6 +5,17 @@
 <br/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <h1>Employee List</h1>
+<div class="form-group">
+    <label for="search-text">Search Text</label>
+    <input type="text" class="form-control" id="search-text" aria-describedby="search-text" 
+    [(ngModel)]="searchTerm" placeholder="Enter text to search" 
+      autofocus>
+     <!-- <button type="submit" class="searchButton"  (click) = "" >
+        <i class="fa fa-search"></i>
+     </button> -->
+  </div>
+  <br>
+
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -12,6 +23,7 @@
             <th>FirstName</th>
             <th>LastName</th>
             <th>Gender</th>
+            <th>DateofBirth</th>
             <th>Designation</th>
             <th>Email Id</th>
             <th>Phone Number</th>
@@ -19,11 +31,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of items">
+        <tr *ngFor="let employee of filteredEmployees">
             <td>{{employee.Id}}</td>
             <td>{{employee.Firstname}}</td>
             <td>{{employee.Lastname}}</td>
             <td>{{employee.Gender}}</td>
+            <td>{{employee.Dateofbirth}}</td>
             <td>{{employee.Designation}}</td>
             <td>{{employee.Email}}</td>
             <td>{{employee.Phonenumber}}</td>

@@ -82,9 +82,17 @@ export class EmployeeAddComponent implements OnInit {
   } else {
     this._firebaseServ.addinfo(this.formdata.value).then(resp => {
       console.log(resp);
-      
+      this.router.navigate(['/employees-list']);
       });
      }
   }
 
+  resetForm() {
+    this.formdata.reset();
+  }
+
+  cancelForm() {
+    this.router.navigate(['/employees-list']);
+  }
+  
 }

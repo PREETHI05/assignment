@@ -78,10 +78,26 @@
     width: 20%;
     text-align:center;
 }
-.btn {
+.btn1 {
   text-align:center;
   display: inline-block;
-  margin-left: 190px; /* space between buttons */
+  margin-left: 15px; /* space between buttons */
+  background: #b06f97; /* background color */
+  color: #333; /* text color */
+  font-size: 10px;
+  font-family: ‘Georgia’, serif;
+  font-style: italic;
+  border-radius: 50px; /* rounded corners */
+  padding: 8px 16px; /* space around text */
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  width: 20%;
+}
+.btn2 {
+  text-align:center;
+  display: inline-block;
+  margin-left: 15px; /* space between buttons */
   background: #b06f97; /* background color */
   color: #333; /* text color */
   font-size: 10px;
