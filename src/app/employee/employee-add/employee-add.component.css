@@ -14,7 +14,7 @@
     font-family: sans-serif;
     font-size: 15px;
     box-align: center;
-    
+
   }
 
   input[type=text] {
@@ -31,10 +31,10 @@
   .ng-valid[required], .ng-valid.required  {
     border-left: 5px solid #42A948; /* green */
   }
-  
+
   /*.ng-invalid  {
     border-left: 5px solid #a94442; /* red */
-  
+
 
   input[type=email] {
     width: 100%;
@@ -52,7 +52,7 @@
     border: none;
     background: #f1f1f1;
   }
-  
+
 
   input[type=phonenumber] {
     width: 100%;
@@ -110,4 +110,3 @@
   transition: all 0.2s;
   width: 20%;
 }
-  

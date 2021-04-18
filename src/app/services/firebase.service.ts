@@ -18,11 +18,10 @@ export class FirebaseService {
     
     let result = await this.db.list('/details').push(record);
     return result;
-   // console.log(result);
+   
   }
 
    getInfo() {
-   //return new Promise<any>((resolve, reject) => { 
       return this.db.list('/details');
   }
 
@@ -31,7 +30,7 @@ export class FirebaseService {
      return this.db.list(`/details/${id}`);
   }
 
-  updateInfo(userKey, value) {
+  updateUser(userKey, value) {
    return this.db.list('/details').update(userKey, value);
  }
   

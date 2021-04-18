@@ -15,7 +15,6 @@ export class EmployeeAddComponent implements OnInit {
   formdata: FormGroup;
   emp: any;
   EmployeeId: string;
- // emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
   constructor(private router: Router,
       private route: ActivatedRoute, 
     private _firebaseServ: FirebaseService) { 
@@ -38,13 +37,7 @@ export class EmployeeAddComponent implements OnInit {
       this.editEmployee(employeeKeyValues);
     });
   }
-    //  .snapshotChanges().subscribe(employeeKeys => {
-    //   this._firebaseServ.employeeDetails(EmployeeId).valueChanges().subscribe(employeeValues => {
-    //     this.items = employeeValues;
-    //     for(l)
-    //     console.log({employeeKeys})
-    //     console.log({employeeValues})
-        // this.editEmployee(emp);
+   
    this.formdata = new FormGroup({
      Firstname: new FormControl('', [
       Validators.required,

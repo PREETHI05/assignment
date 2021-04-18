@@ -23,11 +23,8 @@ export class EmployeesListComponent implements OnInit {
 
   set searchTerm(value: string) {
     this._searchTerm = value;
-    this.filteredEmployees = this.filterEmployees(value);
-  }
-
-  filterEmployees(searchString: string) {
-    return this.items.filter(res => res.Firstname.toLowerCase().indexOf(searchString.toLowerCase()) !== -1);
+    this.filteredEmployees = this.items.filter(res => res.Firstname.toLowerCase().indexOf( this._searchTerm .toLowerCase()) !== -1);
+    
   }
 
   constructor(private router: Router,
@@ -37,18 +34,13 @@ export class EmployeesListComponent implements OnInit {
 
   ngOnInit() {
     this._firebaseServ.getInfo().snapshotChanges().subscribe(result => {
-      console.log(result)
       if(result) {
       this._firebaseServ.getInfo().valueChanges().subscribe(res => {
         this.items = res;
         for (let i= 0; i< this.items.length; i++) {
-          console.log(result[i]);
           this.items[i]["Id"] = result[i] ? result[i].key : "";    
         }
-       // console.log(this.items); 
-       console.log(this.items);
        this.filteredEmployees = this.items;
-       console.log("this.filteredEmployees", this.filteredEmployees);
    
       })
     } 
@@ -56,6 +48,7 @@ export class EmployeesListComponent implements OnInit {
   }
   
   updateInfo(employeeId : string) {
+    
         this.router.navigate(['/employee-add'], { queryParams: {employeeId}});
   }
 
@@ -63,7 +56,7 @@ export class EmployeesListComponent implements OnInit {
     this._firebaseServ.deleteUser(employeeID)
     .then(
       res => {
-        this.router.navigate(['/employee-list']);
+        this.router.navigate(['/employees-list']);
       });
   }
 

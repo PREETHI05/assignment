@@ -17,10 +17,10 @@
     <input type = "text"   placeholder="Last Name" class="form-control" formControlName="Lastname" />
   </div>
   <br>
-  
+
   <div  class="form-group">
     <label>email</label>
-    <input type = "email" name = "emailId" Placeholder="Enter your emailId" class="form-control" formControlName="Email" required 
+    <input type = "email" name = "emailId" Placeholder="Enter your emailId" class="form-control" formControlName="Email" required
     [ngClass]="{'is-invalid':formdata.get('Email').touched && formdata.get('Email').invalid}"   />
     <div *ngIf="formdata.get('Email').touched && formdata.get('Email').invalid"  class="invalid-feedback">
       <p *ngIf="formdata.get('Email').errors.required">Email Name is required</p>
@@ -29,7 +29,7 @@
   </div>
 
   <br>
-  
+
   <div  class="form-group">
     <label>DateofBirth</label>
     <input type = "date" name = "emailId" Placeholder="Enter your dateofbirth" class="form-control" formControlName="Dateofbirth" />
