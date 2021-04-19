@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/services/firebase.service';
 //import { NgModule } from '@angular/core';
 import * as firebase from 'firebase';
-import { EmployeeAddComponent } from '../employee-add/employee-add.component';
+// import { EmployeeAddComponent } from '../employee-add/employee-add.component';
 import {ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -47,11 +47,11 @@ export class EmployeesListComponent implements OnInit {
     })
   }
   
-  updateInfo(employeeId : string) {
-    
-        this.router.navigate(['/employee-add'], { queryParams: {employeeId}});
+  updateInfo(id : string) {
+      
+        this.router.navigate(['/employee-add'], {queryParams: {id}});
   }
-
+  
   deleteData(employeeID : string) {
     this._firebaseServ.deleteUser(employeeID)
     .then(

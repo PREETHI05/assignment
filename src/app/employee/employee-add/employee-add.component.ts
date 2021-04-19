@@ -21,7 +21,7 @@ export class EmployeeAddComponent implements OnInit {
     
    }
  ngOnInit() {
-  this.EmployeeId = this.route.snapshot.queryParamMap.get('employeeId');
+  this.EmployeeId = this.route.snapshot.queryParamMap.get('id');
   //console.log(this.EmployeeId);
   if(this.EmployeeId) {
    const employeeKeyValues = {}; 
@@ -68,7 +68,7 @@ export class EmployeeAddComponent implements OnInit {
    }
  onsubmit() {
  if(this.EmployeeId) {
-   this._firebaseServ.updateInfo(this.EmployeeId, this.formdata.value).then(
+   this._firebaseServ.updateUser(this.EmployeeId, this.formdata.value).then(
     res => {
       this.router.navigate(['/employees-list']);
     });

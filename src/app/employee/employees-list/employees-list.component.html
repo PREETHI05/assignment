@@ -1,18 +1,18 @@
-<p> Welcome!......</p>
-<br />
-<a routerLink = "/employee-add">ADD EMPLOYEE</a>
-<br />
-<br/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <h1>Employee List</h1>
+<br>
+<br>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="form-group">
-    <label for="search-employee">Search Employee</label>
+    <label for="search-employee">Search Employee:</label>
     <input type="text" class="form-control" id="search-employee" 
     [(ngModel)]="searchTerm" placeholder="Enter name to search"
       autofocus>
-  </div>
+</div>
+<button class= "button btn" routerLink = "/employee-add">ADD EMPLOYEE</button>
   <br>
-
+  <br>
+  <br>
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -38,7 +38,7 @@
             <td>
                 <div>
                     <button class= "button button2" (click) = "updateInfo(employee.Id)" title = "UPDATE"><i class="fa fa-edit"></i></button>
-                    <button class= "button button3" (click) = "deleteData(employee.Id)" title = "DELETE"><i class="fa fa-minus-circle"></i></button>
+                    <button class= "button button3" (click) = "deleteData(employee.Id)" title = "DELETE"><i class="fa fa-trash"></i></button>
                 </div>
             </td>
         </tr>

@@ -9,14 +9,19 @@
     box-sizing: border-box;
     display: block;
     box-decoration-break:lawngreen;
-    text-align: justify;
+    text-align:left;
     color:black;
     font-family: sans-serif;
     font-size: 15px;
     box-align: center;
+    font-weight: bold;
 
   }
 
+  h1 {
+    color:purple;
+    text-align:center;
+  }
   input[type=text] {
     width: 100%;
     padding: 15px;
@@ -27,6 +32,7 @@
   }
   p {
     color:red;
+    margin-top: 0.5px;
   }
   .ng-valid[required], .ng-valid.required  {
     border-left: 5px solid #42A948; /* green */
@@ -52,7 +58,15 @@
     border: none;
     background: #f1f1f1;
   }
-
+  
+  #Designation {
+    width: 105%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
 
   input[type=phonenumber] {
     width: 100%;
@@ -72,9 +86,9 @@
     font-style: italic;
     border-radius: 50px; /* rounded corners */
     padding: 8px 16px; /* space around text */
-    -moz-transition: all 0.2s;
+    /* -moz-transition: all 0.2s;
     -webkit-transition: all 0.2s;
-    transition: all 0.2s;
+    transition: all 0.2s; */
     width: 20%;
     text-align:center;
 }
@@ -89,9 +103,7 @@
   font-style: italic;
   border-radius: 50px; /* rounded corners */
   padding: 8px 16px; /* space around text */
-  -moz-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
+  /* transition: all 0.2s; */
   width: 20%;
 }
 .btn2 {
@@ -105,8 +117,6 @@
   font-style: italic;
   border-radius: 50px; /* rounded corners */
   padding: 8px 16px; /* space around text */
-  -moz-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
+  /* transition: all 0.2s; */
   width: 20%;
 }

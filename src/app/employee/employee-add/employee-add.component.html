@@ -3,9 +3,8 @@
 <div class = "container">
   <h1>Add Employee Details</h1>
   <div class="form-group">
-    <label>FirstName</label>
+    <label>First Name</label>
     <input type = "text"  placeholder="First Name" id = "Firstname" class="form-control" formControlName="Firstname" required />
-
     <p *ngIf="formdata.get('Firstname').hasError('required') &&
     (formdata.get('Firstname').dirty)">
         Firstname is required
@@ -13,13 +12,13 @@
   </div>
   <br>
   <div class="form-group" >
-    <label>LastName</label>
+    <label>Last Name</label>
     <input type = "text"   placeholder="Last Name" class="form-control" formControlName="Lastname" />
   </div>
   <br>
 
   <div  class="form-group">
-    <label>email</label>
+    <label>Email Id</label>
     <input type = "email" name = "emailId" Placeholder="Enter your emailId" class="form-control" formControlName="Email" required
     [ngClass]="{'is-invalid':formdata.get('Email').touched && formdata.get('Email').invalid}"   />
     <div *ngIf="formdata.get('Email').touched && formdata.get('Email').invalid"  class="invalid-feedback">
@@ -31,12 +30,16 @@
   <br>
 
   <div  class="form-group">
-    <label>DateofBirth</label>
-    <input type = "date" name = "emailId" Placeholder="Enter your dateofbirth" class="form-control" formControlName="Dateofbirth" />
+    <label>Date of Birth</label>
+    <input type = "date" name = "emailId" Placeholder="Enter your dateofbirth" class="form-control" formControlName="Dateofbirth" required />
+    <p *ngIf="formdata.get('Dateofbirth').hasError('required') &&
+    (formdata.get('Dateofbirth').dirty)">
+       Date of Birth is required
+    </p>
   </div> <br>
 
   <div  class="form-group">
-    <label>gender</label><br>
+    <label>Gender</label><br><br>
     <input type="radio" id="male"  value="male" class="form-control" formControlName="Gender" />
   <label for="male">Male</label><br>
   <input type="radio" id="female"  value="female" class="form-control" formControlName="Gender" />
@@ -46,18 +49,19 @@
   <br>
 
   <div  class="form-group" >
-    <label for = "designation">Designation</label>
-    <select id="designation"  value="designation" class="form-control" formControlName="Designation">
+    <label for = "Designation">Designation</label>
+    <select id="Designation"  value="designation" class="form-control" formControlName="Designation">
       <option value="Manager" >Manager</option>
       <option value="HR" >HR</option>
       <option value="Team Leader" >Team Leader</option>
     </select>
   </div>
 
-<br>
+  <br>
+  <br>
 
   <div class="form-group">
-    <label>PhoneNumber</label>
+    <label>Phone Number</label>
     <input type = "phonenumber" name = "phonenumber" Placeholder="Give your contact"  class="form-control" formControlName="Phonenumber" required
     [ngClass]="{'is-invalid':formdata.get('Phonenumber').touched && formdata.get('Phonenumber').invalid}"   />
     <div *ngIf="formdata.get('Phonenumber').touched && formdata.get('Phonenumber').invalid"  class="invalid-feedback">

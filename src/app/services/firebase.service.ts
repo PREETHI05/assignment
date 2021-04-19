@@ -35,8 +35,10 @@ export class FirebaseService {
  }
   
  deleteUser(userKey) {
-  return this.db.list('/details').remove(userKey);
- }
+   if (confirm('Delete employee?')) {
+     return this.db.list('/details').remove(userKey);
+   }
+}
    
 }
 
